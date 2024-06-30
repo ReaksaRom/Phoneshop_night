@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.reaksa.learn.phoneshope_night.dto.BrandDTO;
 import com.reaksa.learn.phoneshope_night.entity.Brand;
+import com.reaksa.learn.phoneshope_night.mapper.BrandMapper;
 import com.reaksa.learn.phoneshope_night.service.BrandService;
-import com.reaksa.learn.phoneshope_night.service.util.Mapper;
 
 @RestController
 @RequestMapping("brands")
@@ -24,7 +24,7 @@ public class BrandController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<?> create(@RequestBody BrandDTO brandDTO) {
-		Brand brand = Mapper.toBrand(brandDTO);
+		Brand brand = BrandMapper.INSTANCE.toBrand(brandDTO);
 		brand = brandService.create(brand);
 		return ResponseEntity.ok(brand);
 	}
@@ -37,7 +37,7 @@ public class BrandController {
 
 	@PutMapping("{id}")
 	public ResponseEntity<?> update(@PathVariable("id") Integer brandId,@RequestBody BrandDTO brandDTO){
-		Brand brand = Mapper.toBrand(brandDTO);
+		Brand brand = BrandMapper.INSTANCE.toBrand(brandDTO);
 		Brand updateBrand = brandService.update(brandId, brand);
 		return ResponseEntity.ok(updateBrand);
 	}
