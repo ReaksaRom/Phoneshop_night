@@ -1,14 +1,10 @@
 package com.reaksa.learn.phoneshope_night.service.Imp;
 
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 
 import com.reaksa.learn.phoneshope_night.entity.Brand;
-import com.reaksa.learn.phoneshope_night.exception.ApiException;
 import com.reaksa.learn.phoneshope_night.exception.ResourceNotFoundException;
 import com.reaksa.learn.phoneshope_night.repository.BrandRepository;
 import com.reaksa.learn.phoneshope_night.service.BrandService;
