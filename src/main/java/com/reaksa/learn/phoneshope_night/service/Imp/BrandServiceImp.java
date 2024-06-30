@@ -1,6 +1,8 @@
 package com.reaksa.learn.phoneshope_night.service.Imp;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +35,17 @@ public class BrandServiceImp implements BrandService {
 		brand.setName(brandUpdate.getName());
 		return brandRepository.save(brand);
 	}
+
+	@Override
+	public List<Brand> getBrands() {
+		return brandRepository.findAll();
+	}
+
+	@Override
+	public List<Brand> getBrands(String name) {
+		return brandRepository.findByNameContains(name);
+	}
+
 
 
 }
